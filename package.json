@@ -1,0 +1,20 @@
+{
+  "name": "bit-kafka",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "kafkajs": "^2.2.3",
+    "kafkajs-lz4": "^1.2.1",
+    "lz4": "^0.6.5",
+    "lz4-asm": "^0.4.2",
+    "uuid": "^11.1.0"
+  }
+}
