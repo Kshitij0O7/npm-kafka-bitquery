@@ -6,7 +6,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kshitij Bitquery",
   "license": "ISC",
   "description": "",
   "dependencies": {
