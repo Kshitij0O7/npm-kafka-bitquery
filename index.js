@@ -1,5 +1,6 @@
 const { Kafka } = require('kafkajs');
 const fs = require("fs");
+const path = require('path');
 const { CompressionTypes, CompressionCodecs } = require("kafkajs");
 const LZ4 = require("kafkajs-lz4");
 // require('dotenv').config();
@@ -13,6 +14,11 @@ const getStream = (_username, _password, _topic) => {
     const password = _password;
     const topic = _topic;
 
+    const filePathServer = path.resolve(__dirname, 'server.cer.pem');
+    const filePathCert = path.resolve(__dirname, 'server.cer.pem');
+    const filePathKey = path.resolve(__dirname, 'server.cer.pem');
+
+
     const kafka = new Kafka({
       clientId: username,
       brokers: [
@@ -22,9 +28,9 @@ const getStream = (_username, _password, _topic) => {
       ],
       ssl: {
         rejectUnauthorized: false,
-        ca: [fs.readFileSync("server.cer.pem", "utf-8")],
-        key: fs.readFileSync("client.key.pem", "utf-8"),
-        cert: fs.readFileSync("client.cer.pem", "utf-8"),
+        ca: [fs.readFileSync(filePathServer, "utf-8")],
+        key: fs.readFileSync(filePathKey, "utf-8"),
+        cert: fs.readFileSync(filePathCert, "utf-8"),
       },
       sasl: {
         mechanism: "scram-sha-512",
