@@ -14,24 +14,13 @@ const getStream = (_username, _password, _topic) => {
     const password = _password;
     const topic = _topic;
 
-    const filePathServer = path.resolve(__dirname, 'server.cer.pem');
-    const filePathCert = path.resolve(__dirname, 'server.cer.pem');
-    const filePathKey = path.resolve(__dirname, 'server.cer.pem');
-
-
     const kafka = new Kafka({
       clientId: username,
       brokers: [
-        "rpk0.bitquery.io:9093",
-        "rpk1.bitquery.io:9093",
-        "rpk2.bitquery.io:9093",
+        "rpk0.bitquery.io:9092",
+        "rpk1.bitquery.io:9092",
+        "rpk2.bitquery.io:9092",
       ],
-      ssl: {
-        rejectUnauthorized: false,
-        ca: [fs.readFileSync(filePathServer, "utf-8")],
-        key: fs.readFileSync(filePathKey, "utf-8"),
-        cert: fs.readFileSync(filePathCert, "utf-8"),
-      },
       sasl: {
         mechanism: "scram-sha-512",
         username: username,
@@ -40,7 +29,7 @@ const getStream = (_username, _password, _topic) => {
     });
     
     const consumer = kafka.consumer({
-        groupId: username + "-my-group",
+        groupId: username + "-my-group1",
         sessionTimeout: 30000,
     });
 
@@ -70,4 +59,3 @@ const getStream = (_username, _password, _topic) => {
 }
 
 module.exports = { getStream };
-// getStream("trontest1", "9ijSSnbrj7lldsqq1taSl3YOdujRWB", "tron.broadcasted.transactions");
