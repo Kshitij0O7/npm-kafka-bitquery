@@ -23,7 +23,7 @@ getStream("<username>", "<password>", "<topic>", "<groupName>");
 - \<groupName>: Distinction for when multiple streams are accessed from one cluster(when one set of \<username> and \<password> are used). 
 
 ## Contributing
-Contributions are welcome! Feel free to submit issues and pull requests.
+Contributions are welcome! Feel free to submit issues and pull requests [here](https://github.com/Kshitij0O7/npm-kafka-bitquery).
 
 ## License
 ISC License © 2025 bit-kafka
