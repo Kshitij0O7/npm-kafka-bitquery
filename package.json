@@ -1,14 +1,14 @@
 {
   "name": "bit-kafka",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
+  "keywords": ["Bitquery", "Kafka"],
   "author": "Kshitij Bitquery",
   "license": "ISC",
-  "description": "",
+  "description": "A wrapper package to use Kafka solution from Bitquery without writing complex code",
   "dependencies": {
     "fs": "^0.0.1-security",
     "kafkajs": "^2.2.3",

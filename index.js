@@ -8,7 +8,7 @@ const LZ4 = require("kafkajs-lz4");
 CompressionCodecs[CompressionTypes.LZ4] = new LZ4().codec;
 
 
-const getStream = (_username, _password, _topic) => {
+const getStream = (_username, _password, _topic, groupName) => {
     // Pre-requisites
     const username = _username;
     const password = _password;
@@ -29,7 +29,7 @@ const getStream = (_username, _password, _topic) => {
     });
     
     const consumer = kafka.consumer({
-        groupId: username + "-my-group1",
+        groupId: username + "-" + groupName,
         sessionTimeout: 30000,
     });
 
